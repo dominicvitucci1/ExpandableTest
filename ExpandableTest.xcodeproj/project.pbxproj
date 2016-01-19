@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B679B29F1C4D6AE60047F3F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B29E1C4D6AE60047F3F2 /* AppDelegate.swift */; };
-		B679B2A11C4D6AE60047F3F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B2A01C4D6AE60047F3F2 /* ViewController.swift */; };
 		B679B2A41C4D6AE60047F3F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B679B2A21C4D6AE60047F3F2 /* Main.storyboard */; };
 		B679B2A61C4D6AE60047F3F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B679B2A51C4D6AE60047F3F2 /* Assets.xcassets */; };
 		B679B2A91C4D6AE60047F3F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B679B2A71C4D6AE60047F3F2 /* LaunchScreen.storyboard */; };
 		B679B2B41C4D6AE60047F3F2 /* ExpandableTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B2B31C4D6AE60047F3F2 /* ExpandableTestTests.swift */; };
 		B679B2BF1C4D6AE60047F3F2 /* ExpandableTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B2BE1C4D6AE60047F3F2 /* ExpandableTestUITests.swift */; };
+		B679B2D71C4D782E0047F3F2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B2D61C4D782E0047F3F2 /* TableViewController.swift */; };
+		B679B2D91C4D784C0047F3F2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679B2D81C4D784C0047F3F2 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		B679B29B1C4D6AE60047F3F2 /* ExpandableTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B679B29E1C4D6AE60047F3F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B679B2A01C4D6AE60047F3F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B679B2A31C4D6AE60047F3F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B679B2A51C4D6AE60047F3F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B679B2A81C4D6AE60047F3F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		B679B2BA1C4D6AE60047F3F2 /* ExpandableTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandableTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B679B2BE1C4D6AE60047F3F2 /* ExpandableTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableTestUITests.swift; sourceTree = "<group>"; };
 		B679B2C01C4D6AE60047F3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B679B2D61C4D782E0047F3F2 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		B679B2D81C4D784C0047F3F2 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = ../TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				B679B29E1C4D6AE60047F3F2 /* AppDelegate.swift */,
-				B679B2A01C4D6AE60047F3F2 /* ViewController.swift */,
+				B679B2D61C4D782E0047F3F2 /* TableViewController.swift */,
+				B679B2D81C4D784C0047F3F2 /* TableViewCell.swift */,
 				B679B2A21C4D6AE60047F3F2 /* Main.storyboard */,
 				B679B2A51C4D6AE60047F3F2 /* Assets.xcassets */,
 				B679B2A71C4D6AE60047F3F2 /* LaunchScreen.storyboard */,
@@ -256,8 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B679B2A11C4D6AE60047F3F2 /* ViewController.swift in Sources */,
+				B679B2D91C4D784C0047F3F2 /* TableViewCell.swift in Sources */,
 				B679B29F1C4D6AE60047F3F2 /* AppDelegate.swift in Sources */,
+				B679B2D71C4D782E0047F3F2 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +403,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExpandableTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dominicvitucci.ExpandableTest;
@@ -410,6 +418,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExpandableTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dominicvitucci.ExpandableTest;
@@ -484,6 +496,7 @@
 				B679B2C51C4D6AE60047F3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B679B2C61C4D6AE60047F3F2 /* Build configuration list for PBXNativeTarget "ExpandableTestTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				B679B2C81C4D6AE60047F3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B679B2C91C4D6AE60047F3F2 /* Build configuration list for PBXNativeTarget "ExpandableTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				B679B2CB1C4D6AE60047F3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
