@@ -8,6 +8,7 @@
 
 import UIKit
 
+let cellID = "cell"
 class TableViewController: UITableViewController {
     
     var testArray = []
@@ -15,74 +16,92 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        testArray = ["1","2","3"]
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        testArray = ["Intrauterine Device","Intrauterine Device","Intrauterine Device", "Intrauterine Device", "Intrauterine Device"]
+    
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
+    var selectedIndexPath : NSIndexPath?
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return testArray.count
     }
-
-
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-
-         //Configure the cell...
-
-        return cell
-    }
-
-
-    var thereIsCellTapped = false
-    var selectedRowIndex = -1
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        if indexPath.row == selectedRowIndex && thereIsCellTapped {
-            return 140
-        }
-        
-        return 44
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath) as! TableViewCell
+        let row = indexPath.row
+        cell.titleLabel.text = testArray[row] as? String
+        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        self.tableView.cellForRowAtIndexPath(indexPath)?.backgroundColor = UIColor.grayColor()
-        
-        // avoid paint the cell is the index is outside the bounds
-        if self.selectedRowIndex != -1 {
-            self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: self.selectedRowIndex, inSection: 0))?.backgroundColor = UIColor.whiteColor()
+        let previousIndexPath = selectedIndexPath
+        if indexPath == selectedIndexPath {
+            selectedIndexPath = nil
+        } else {
+            selectedIndexPath = indexPath
         }
         
-        if selectedRowIndex != indexPath.row {
-            self.thereIsCellTapped = true
-            self.selectedRowIndex = indexPath.row
+        var indexPaths : Array<NSIndexPath> = []
+        if let previous = previousIndexPath {
+            indexPaths += [previous]
         }
-        else {
-            // there is no cell selected anymore
-            self.thereIsCellTapped = false
-            self.selectedRowIndex = -1
+        if let current = selectedIndexPath {
+            indexPaths += [current]
         }
+        if indexPaths.count > 0 {
+            tableView.reloadRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! TableViewCell).watchFrameChanges()
         
-        self.tableView.beginUpdates()
-        self.tableView.endUpdates()
+//        cell.contentView.backgroundColor=UIColor.clearColor()
+//        
+//        var whiteRoundedCornerView:UIView!
+//        whiteRoundedCornerView=UIView(frame: CGRectMake(5,10,self.view.bounds.width-10,120))
+//        whiteRoundedCornerView.backgroundColor=UIColor(red: 158/255.0, green: 112/255.0, blue: 65/255.0, alpha: 1.0)
+//        whiteRoundedCornerView.layer.masksToBounds=false
+//        
+//        whiteRoundedCornerView.layer.shadowOpacity = 1.55;
+//        
+//        
+//        
+//        whiteRoundedCornerView.layer.shadowOffset = CGSizeMake(1, 0);
+//        whiteRoundedCornerView.layer.shadowColor=UIColor(red: 53/255.0, green: 143/255.0, blue: 185/255.0, alpha: 1.0).CGColor
+//        
+//        
+//        
+//        whiteRoundedCornerView.layer.cornerRadius=3.0
+//        whiteRoundedCornerView.layer.shadowOffset=CGSizeMake(-1, -1)
+//        whiteRoundedCornerView.layer.shadowOpacity=0.5
+//        cell.contentView.addSubview(whiteRoundedCornerView)
+//        cell.contentView.sendSubviewToBack(whiteRoundedCornerView)
+        
+
+    }
+    
+    override func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! TableViewCell).ignoreFrameChanges()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        for cell in tableView.visibleCells as! [TableViewCell] {
+            cell.ignoreFrameChanges()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath == selectedIndexPath {
+            return TableViewCell.expandedHeight
+        } else {
+            return TableViewCell.defaultHeight
+        }
     }
 }
